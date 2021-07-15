@@ -1,5 +1,6 @@
 import React from 'react';
 import SongList from './songlist';
+import SongDetail from './songdetail';
 
 const App = () => {
   return (
@@ -8,8 +9,8 @@ const App = () => {
         <div className="col-md-6">
           <SongList />
         </div>
-        <div className="col-md-6">
-
+        <div className="col-md-6 d-flex justify-content-center align-items-center">
+          <SongDetail />
         </div>
       </div>
     </div>

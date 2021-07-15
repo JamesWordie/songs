@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectSong } from '../actions';
 
 // component
 class SongList extends React.Component {
@@ -12,7 +13,12 @@ class SongList extends React.Component {
           <div className="card my-3">
             <div className="card-body d-inline-flex justify-content-between align-items-center">
               <h5 className="card-title mb-0">{song.title}</h5>
-              <button className="btn btn-info">Select</button>
+              <button
+                className="btn btn-info"
+                onClick={() => this.props.selectSong(song)}
+              >
+                Select
+              </button>
               {/*<a href="#" className="btn btn-info"></a>*/}
             </div>
           </div>
@@ -38,5 +44,6 @@ const mapStateToProps = (state) => {
   return { songs: state.songs };
 };
 
-export default connect(mapStateToProps)(SongList);
+// 2nd arg of actionCreator
+export default connect(mapStateToProps, { selectSong })(SongList);
 // syntax ()() refers to a function returning a function, 1st calls outer function, 2nd call return function
